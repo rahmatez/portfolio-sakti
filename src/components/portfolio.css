@@ -26,6 +26,26 @@
   cursor: none;
 }
 
+.pf-skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 300;
+  padding: 0.75rem 1rem;
+  color: var(--void);
+  background: var(--cyan);
+  font-family: var(--font-mono);
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+.pf-skip-link:focus { transform: translateY(0); }
+
+.pf-root :focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 4px;
+}
+
 /* ── PRELOADER ── */
 .pf-preloader {
   z-index: 200;
@@ -1231,7 +1251,7 @@
   .pf-hero-layout, .pf-about-grid, .pf-skill-layout { grid-template-columns: 1fr; }
   .pf-metrics-grid { grid-template-columns: repeat(2,1fr); }
   .pf-project-row { grid-template-columns: 2.4rem minmax(0,1fr); }
-  .pf-project-tags, .pf-project-icon { grid-column: 2; justify-content: flex-start; }
+  .pf-project-tags { grid-column: 2; justify-content: flex-start; }
   .pf-hover-preview { display: none; }
   .pf-journey-entry { grid-template-columns: 110px 28px 1fr; gap: 0.9rem; }
   .pf-journey-period { font-size: 0.65rem; }
@@ -1239,9 +1259,6 @@
   .pf-journey-logo { width: 44px; height: 44px; }
   .pf-oss-grid { grid-template-columns: 1fr; }
   .pf-live-grid { grid-template-columns: 1fr; }
-  .pf-projects-body { grid-template-columns: 1fr; }
-  .pf-repo-preview-rail { position: relative; top: 0; order: -1; }
-  .pf-repo-preview-frame { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 700px) {
   .pf-chapter-nav { padding: 0.55rem 0.8rem; gap: 0.5rem; }
@@ -1260,9 +1277,41 @@
   .pf-metrics-grid { grid-template-columns: 1fr; }
   .pf-metric-card { min-height: 220px; }
   .pf-project-row { grid-template-columns: 1fr; gap: 1rem; min-height: auto; }
-  .pf-project-tags, .pf-project-icon { grid-column: auto; }
+  .pf-project-tags { grid-column: auto; }
   .pf-contact-actions a { width: 100%; }
-  .pf-portrait-frame { min-height: 390px; }
-  .pf-discord-identity { gap: 0.75rem; }
-  .pf-discord-avatar-wrap { width: 60px; height: 60px; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .pf-root { cursor: auto; }
+  .pf-cursor-glow,
+  .pf-cursor-scope,
+  .pf-cursor-dot { display: none; }
+  .pf-root a,
+  .pf-root button,
+  .pf-root input { cursor: pointer; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-root *,
+  .pf-root *::before,
+  .pf-root *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .pf-preloader { display: none; }
+  .pf-shell {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  .pf-chapter-nav {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }

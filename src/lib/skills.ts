@@ -24,7 +24,7 @@ export const SKILLS: Skill[] = [
   { category: "Web & Database", name: "CSS3", icon: dev("css3") },
   { category: "Web & Database", name: "MySQL", icon: dev("mysql") },
   { category: "Web & Database", name: "Full-Stack Web", icon: si("htmx") },
-  { category: "Web & Database", name: "Groq AI API", icon: si("groq") },
+  { category: "Web & Database", name: "Groq AI API", icon: "/brand-mark.svg" },
 
   { category: "Game Development", name: "Unity", icon: dev("unity") },
   { category: "Game Development", name: "Unity 2D/3D", icon: dev("unity") },
@@ -34,15 +34,15 @@ export const SKILLS: Skill[] = [
   { category: "Mobile", name: "Android Studio", icon: dev("androidstudio") },
   { category: "Mobile", name: "Android", icon: dev("android") },
 
-  { category: "Broadcast & Systems", name: "vMix", icon: si("livestream") },
+  { category: "Broadcast & Systems", name: "vMix", icon: "/brand-mark.svg" },
   { category: "Broadcast & Systems", name: "OBS Studio", icon: si("obsstudio") },
-  { category: "Broadcast & Systems", name: "iNEWS", icon: si("windows") },
+  { category: "Broadcast & Systems", name: "iNEWS", icon: "/brand-mark.svg" },
   { category: "Broadcast & Systems", name: "Radmin", icon: si("anydesk") },
 
   { category: "Design & Tools", name: "Figma", icon: dev("figma") },
   { category: "Design & Tools", name: "Git", icon: dev("git") },
-  { category: "Design & Tools", name: "Microsoft Excel", icon: si("microsoftexcel") },
-  { category: "Design & Tools", name: "Microsoft Office", icon: si("microsoft") },
+  { category: "Design & Tools", name: "Microsoft Excel", icon: "/brand-mark.svg" },
+  { category: "Design & Tools", name: "Microsoft Office", icon: "/brand-mark.svg" },
 ];
 
 export const CATEGORIES: SkillCategory[] = [

@@ -245,12 +245,16 @@ function SkillCarousel() {
       </div>
       <div className="pf-skill-carousel" data-reveal="true">
         <div className="pf-skill-carousel-track" key={filter}>
-          {loop.map((s, i) => (
-            <div key={`${s.name}-${i}`} className="pf-skill-chip" title={s.name}>
+          {loop.map((s, i) => {
+            const duplicate = i >= filtered.length;
+            return (
+            <div key={`${s.name}-${i}`} className="pf-skill-chip" title={s.name} aria-hidden={duplicate}>
               <div className="pf-skill-chip-icon">
                 <img
                   src={s.icon}
-                  alt={s.name}
+                  alt={duplicate ? "" : s.name}
+                  width={48}
+                  height={48}
                   draggable={false}
                   loading="lazy"
                   onError={(e) => {
@@ -261,7 +265,7 @@ function SkillCarousel() {
               <span className="pf-skill-chip-name">{s.name}</span>
               <span className="pf-skill-chip-cat">{s.category}</span>
             </div>
-          ))}
+          )})}
         </div>
       </div>
       <div className="pf-skill-carousel pf-skill-carousel-reverse" data-reveal="true" aria-hidden="true">
@@ -272,6 +276,8 @@ function SkillCarousel() {
                 <img
                   src={s.icon}
                   alt=""
+                  width={36}
+                  height={36}
                   draggable={false}
                   loading="lazy"
                   onError={(e) => {
@@ -381,8 +387,14 @@ function Preloader({ onDone }: { onDone: () => void }) {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDone(true);
+      onDone();
+      return;
+    }
+
     let start: number | null = null;
-    const duration = 1400;
+    const duration = 650;
     let raf: number;
     function step(ts: number) {
       if (!start) start = ts;
@@ -390,14 +402,14 @@ function Preloader({ onDone }: { onDone: () => void }) {
       const eased = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
       setPct(Math.round(eased * 100));
       if (progress < 1) { raf = requestAnimationFrame(step); }
-      else { setTimeout(() => { setDone(true); setTimeout(onDone, 700); }, 200); }
+      else { setTimeout(() => { setDone(true); setTimeout(onDone, 250); }, 100); }
     }
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
   }, [onDone]);
 
   return (
-    <div className={`pf-preloader${done ? " is-done" : ""}`}>
+    <div className={`pf-preloader${done ? " is-done" : ""}`} aria-hidden="true">
       <div className="pf-preloader-panel pf-preloader-panel-left" />
       <div className="pf-preloader-panel pf-preloader-panel-right" />
       <div className="pf-preloader-grid" />
@@ -440,6 +452,10 @@ export function Cursor() {
   const dotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const gx = { cur: -100, target: -100 };
     const gy = { cur: -100, target: -100 };
     let raf: number;
@@ -482,8 +498,8 @@ export function Cursor() {
 
   return (
     <>
-      <div ref={glowRef} className="pf-cursor-glow" style={{ transform: "translateX(-100px) translateY(-100px)" }} />
-      <div ref={scopeRef} className="pf-cursor-scope" style={{ transform: "translateX(-100px) translateY(-100px)" }}>
+      <div ref={glowRef} className="pf-cursor-glow" aria-hidden="true" style={{ transform: "translateX(-100px) translateY(-100px)" }} />
+      <div ref={scopeRef} className="pf-cursor-scope" aria-hidden="true" style={{ transform: "translateX(-100px) translateY(-100px)" }}>
         <span className="pf-cursor-scope-ring" />
         <span className="pf-cursor-scope-core" />
         <span className="pf-cursor-scope-line pf-cursor-scope-line-x" />
@@ -491,7 +507,7 @@ export function Cursor() {
         <span className="pf-cursor-blade pf-cursor-blade-a" />
         <span className="pf-cursor-blade pf-cursor-blade-b" />
       </div>
-      <div ref={dotRef} className="pf-cursor-dot" style={{ transform: "translateX(-100px) translateY(-100px)" }} />
+      <div ref={dotRef} className="pf-cursor-dot" aria-hidden="true" style={{ transform: "translateX(-100px) translateY(-100px)" }} />
     </>
   );
 }
@@ -662,6 +678,7 @@ export function Portfolio() {
 
   return (
     <div className="pf-root">
+      <a href="#about" className="pf-skip-link">Skip to main content</a>
       <Preloader onDone={onPreloaderDone} />
       <Cursor />
 
@@ -701,7 +718,7 @@ export function Portfolio() {
         />
       </nav>
 
-      <div className={`pf-shell${ready ? " is-ready" : ""}`}>
+      <main className={`pf-shell${ready ? " is-ready" : ""}`}>
         <div className="pf-noise-overlay" />
         <div className="pf-command-grid" />
 
@@ -865,7 +882,7 @@ export function Portfolio() {
             <p className="pf-contact-username">sarsusakti@gmail.com • Pati, Indonesia</p>
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
 }

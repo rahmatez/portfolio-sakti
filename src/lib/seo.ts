@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 type Meta = { title: string; description: string; path: string };
 
-const SITE = "https://rathodram.vercel.app";
+const SITE = "https://saktihanafi.vercel.app";
 
 function setMetaByName(name: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);

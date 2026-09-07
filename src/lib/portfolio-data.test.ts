@@ -38,7 +38,7 @@ describe("portfolio skill data", () => {
     expect(new Set(SKILLS.map((skill) => skill.name)).size).toBe(SKILLS.length);
 
     for (const skill of SKILLS) {
-      expect(skill.icon).toMatch(/^https:\/\//);
+      expect(skill.icon).toMatch(/^(https:\/\/|\/)/);
     }
   });
 });

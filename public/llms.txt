@@ -1,0 +1,16 @@
+# Sakti Chandra Hanafi Portfolio
+
+Personal portfolio of Sakti Chandra Hanafi, a software developer and Informatics graduate
+with experience in web systems, mobile applications, game development, and IT broadcast.
+
+## Main pages
+
+- [Portfolio](https://saktihanafi.vercel.app/)
+- [Selected projects](https://saktihanafi.vercel.app/projects)
+- [Resume](https://saktihanafi.vercel.app/resume)
+- [LinkedIn](https://linkedin.com/in/saktich)
+
+## Contact
+
+- Email: sarsusakti@gmail.com
+- Location: Pati, Indonesia

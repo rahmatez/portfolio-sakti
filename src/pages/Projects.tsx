@@ -29,7 +29,7 @@ export default function ProjectsPage() {
   return (
     <div className="pf-root pf-projects-root">
       <Cursor />
-      <div className="pf-shell is-ready">
+      <main className="pf-shell is-ready">
         <div className="pf-noise-overlay" />
         <div className="pf-command-grid" />
 
@@ -62,6 +62,7 @@ export default function ProjectsPage() {
             <Search size={14} />
             <input
               type="text"
+              aria-label="Search projects"
               placeholder="Search projects, technologies, or domains…"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
@@ -99,7 +100,7 @@ export default function ProjectsPage() {
           </Link>
           <span>Pati, Indonesia</span>
         </footer>
-      </div>
+      </main>
     </div>
   );
 }

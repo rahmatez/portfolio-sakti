@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { PROJECTS } from "./projects";
 import { CATEGORIES, SKILLS } from "./skills";
@@ -23,7 +24,22 @@ describe("portfolio project data", () => {
       expect(project.description.trim()).not.toBe("");
       expect(project.stack.length).toBeGreaterThan(0);
       expect(project.highlights.length).toBeGreaterThan(0);
+      if (project.image) {
+        expect(existsSync(`public${project.image}`), project.image).toBe(true);
+      }
     }
+  });
+
+  it("uses only the selected project screenshots", () => {
+    expect(PROJECTS.map((project) => project.image)).toEqual([
+      undefined,
+      "/projects/story.png",
+      "/projects/glowrx.png",
+      "/projects/clash-arena.png",
+      "/projects/kisah-teladan-rasul.png",
+      undefined,
+      undefined,
+    ]);
   });
 });
 

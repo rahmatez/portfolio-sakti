@@ -211,10 +211,18 @@ function ProjectShowcase() {
                 <span className="pf-project-eyebrow">{p.category}</span>
                 <h3>{p.name}</h3>
                 <p>{p.description}</p>
+                <div className="pf-project-tags">
+                  {p.stack.slice(0, 4).map((t) => <span key={t}>{t}</span>)}
+                </div>
               </div>
-              <div className="pf-project-tags">
-                {p.stack.slice(0, 4).map((t) => <span key={t}>{t}</span>)}
-              </div>
+              {p.image && (
+                <img
+                  className="pf-project-image"
+                  src={p.image}
+                  alt={`${p.name} project preview`}
+                  loading="lazy"
+                />
+              )}
             </article>
           );
         })}

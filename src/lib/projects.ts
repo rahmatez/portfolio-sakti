@@ -4,6 +4,7 @@ export type PortfolioProject = {
   stack: string[];
   description: string;
   highlights: string[];
+  image?: string;
 };
 
 export const PROJECTS: PortfolioProject[] = [
@@ -28,6 +29,7 @@ export const PROJECTS: PortfolioProject[] = [
       "Destination, culinary, and tourism-package discovery",
       "Interactive categorization and review workflows",
     ],
+    image: "/projects/story.png",
   },
   {
     name: "GlowRX",
@@ -39,6 +41,7 @@ export const PROJECTS: PortfolioProject[] = [
       "AI recommendations based on market and consumer data",
       "Sales dashboard, chatbot, and financial reporting",
     ],
+    image: "/projects/glowrx.png",
   },
   {
     name: "Clash Arena: Win or Die",
@@ -50,6 +53,7 @@ export const PROJECTS: PortfolioProject[] = [
       "Local multiplayer combat mechanics",
       "Jungle, underground, frozen, and chainfire arenas",
     ],
+    image: "/projects/clash-arena.png",
   },
   {
     name: "Kisah Teladan Rasul",
@@ -61,6 +65,7 @@ export const PROJECTS: PortfolioProject[] = [
       "Modules for Shidiq, Tabligh, Fathonah, and Amanah",
       "Scenario-based choices and a final evaluation",
     ],
+    image: "/projects/kisah-teladan-rasul.png",
   },
   {
     name: "Ayo Belajar!",

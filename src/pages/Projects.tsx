@@ -77,6 +77,14 @@ export default function ProjectsPage() {
           )}
           {filtered.map((project) => (
             <article key={project.name} className="pf-repo-card is-visible" data-reveal="true">
+              {project.image && (
+                <img
+                  className="pf-repo-card-image"
+                  src={project.image}
+                  alt={`${project.name} project preview`}
+                  loading="lazy"
+                />
+              )}
               <div className="pf-repo-card-head">
                 <span className="pf-repo-card-name">{project.name}</span>
                 <span className="pf-project-eyebrow">{project.category}</span>

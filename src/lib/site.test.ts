@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
-const SITE_URL = "https://saktihanafi.vercel.app";
+const SITE_URL = "https://saktich.vercel.app";
 
 describe("site metadata", () => {
   it("uses the production domain in every static SEO entry point", () => {
@@ -9,6 +9,7 @@ describe("site metadata", () => {
       const content = readFileSync(file, "utf8");
       expect(content, file).toContain(SITE_URL);
       expect(content, file).not.toContain("rathodram.vercel.app");
+      expect(content, file).not.toContain("saktihanafi.vercel.app");
     }
   });
 

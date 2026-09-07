@@ -6,4 +6,4 @@ Allow: /
 Allow: /brand-mark.svg
 Allow: /social-card.png
 
-Sitemap: https://saktihanafi.vercel.app/sitemap.xml
+Sitemap: https://saktich.vercel.app/sitemap.xml

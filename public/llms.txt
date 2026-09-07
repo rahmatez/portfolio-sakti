@@ -5,9 +5,9 @@ with experience in web systems, mobile applications, game development, and IT br
 
 ## Main pages
 
-- [Portfolio](https://saktihanafi.vercel.app/)
-- [Selected projects](https://saktihanafi.vercel.app/projects)
-- [Resume](https://saktihanafi.vercel.app/resume)
+- [Portfolio](https://saktich.vercel.app/)
+- [Selected projects](https://saktich.vercel.app/projects)
+- [Resume](https://saktich.vercel.app/resume)
 - [LinkedIn](https://linkedin.com/in/saktich)
 
 ## Contact

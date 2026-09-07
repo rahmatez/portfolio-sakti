@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /brand-mark.svg
+Allow: /social-card.png
+
+Sitemap: https://rathodram.vercel.app/sitemap.xml

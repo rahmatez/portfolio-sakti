@@ -5,6 +5,7 @@ import { usePageMeta } from "../lib/seo";
 import { SKILLS, CATEGORIES, type SkillCategory } from "../lib/skills";
 import { RESUME_PATH, RESUME_FILENAME } from "../lib/resume";
 import { PROJECTS } from "../lib/projects";
+import { ThemeToggle } from "./ThemeToggle";
 import "./portfolio.css";
 
 const MARQUEE_ITEMS = [
@@ -719,6 +720,7 @@ export function Portfolio() {
           <FileText size={12} aria-hidden="true" />
           <span>Resume</span>
         </a>
+        <ThemeToggle />
         <span
           ref={navProgressRef}
           className="pf-chapter-nav-progress"

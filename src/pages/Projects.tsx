@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { ArrowLeft, Search } from "lucide-react";
 import "../components/portfolio.css";
 import { Cursor } from "../components/Portfolio";
+import { ThemeToggle } from "../components/ThemeToggle";
 import { usePageMeta } from "../lib/seo";
 import { PROJECTS } from "../lib/projects";
 
@@ -38,7 +39,10 @@ export default function ProjectsPage() {
             <ArrowLeft size={14} />
             <span>Back to portfolio</span>
           </Link>
-          <span className="pf-projects-github">Sakti Chandra Hanafi</span>
+          <div className="pf-projects-header-actions">
+            <span className="pf-projects-github">Sakti Chandra Hanafi</span>
+            <ThemeToggle />
+          </div>
         </header>
 
         <section className="pf-projects-hero">

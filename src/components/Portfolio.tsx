@@ -158,6 +158,8 @@ function MetricCard({ value, label, delay = 0 }: { value: string; label: string;
   const num = numMatch ? parseInt(numMatch[1]) : 0;
   const suffix = numMatch ? numMatch[2] : "";
   const isStatic = !numMatch;
+  const stackedParts = isStatic ? value.trim().split(/\s+/) : [];
+  const isStacked = stackedParts.length > 1;
   const counted = useCounter(num, suffix, visible);
 
   useEffect(() => {
@@ -186,7 +188,13 @@ function MetricCard({ value, label, delay = 0 }: { value: string; label: string;
         transition: `opacity 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
       }}
     >
-      <span className="pf-metric-value">{isStatic ? value : counted}</span>
+      <span className={`pf-metric-value${isStacked ? " is-stacked" : ""}`}>
+        {isStacked
+          ? stackedParts.map((part) => <span key={part}>{part}</span>)
+          : isStatic
+            ? value
+            : counted}
+      </span>
       <span className="pf-metric-label">{label}</span>
     </div>
   );

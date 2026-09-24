@@ -568,6 +568,14 @@
   font-family: var(--font-display); font-size: clamp(4rem,9vw,8rem); line-height: 0.78;
   display: block;
 }
+.pf-metric-value.is-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22em;
+  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+  line-height: 0.92;
+}
+.pf-metric-value.is-stacked > span { display: block; }
 .pf-metric-label { color: var(--text-muted-2); max-width: 12rem; font-family: var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.78rem; }
 
 /* ── PROJECTS ── */
